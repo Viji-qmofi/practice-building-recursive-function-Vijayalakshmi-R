@@ -1,6 +1,6 @@
 console.log(`Method 1 : Using Slice and Length Methods\n`);
 
-function recursiveReverseStringSlice1(inputString)
+function reverseString(inputString)
 {
    // Base case: If the string has one character or is empty, return it as is.  
   if(inputString.length <= 1)
@@ -8,17 +8,17 @@ function recursiveReverseStringSlice1(inputString)
    return inputString;
   }
   // Recursive case: Concatenate the last character with the reversed 
-  return inputString[inputString.length-1] + recursiveReverseStringSlice1(inputString.slice(0, -1));
+  return inputString[inputString.length-1] + reverseString(inputString.slice(0, -1));
   
  }
 
 // Test cases
-console.log(`"hello" reversed: ${recursiveReverseStringSlice1("hello")}`); // Outputs: "olleh"
-console.log(`"recursion" reversed: ${recursiveReverseStringSlice1("recursion")}`); // Outputs: "noisrucer"
-console.log(`"a" reversed: ${recursiveReverseStringSlice1("a")}`); // Outputs: "a"
-console.log(`"" reversed: ${recursiveReverseStringSlice1("")}`); // Outputs: ""
+console.log(`"hello" reversed: ${reverseString("hello")}`); // Outputs: "olleh"
+console.log(`"recursion" reversed: ${reverseString("recursion")}`); // Outputs: "noisrucer"
+console.log(`"a" reversed: ${reverseString("a")}`); // Outputs: "a"
+console.log(`"" reversed: ${reverseString("")}`); // Outputs: ""
 
-console.log(`\nMethod 2 : Using Slice Method\n`);
+/*console.log(`\nMethod 2 : Using Slice Method\n`);
 
 function recursiveReverseStringSlice2(inputString) {
   //Base case
@@ -47,7 +47,7 @@ function recursiveReverseStringSubString(inputString) {
   }
 
   /* Recursive case: Concatenate the last character of the string
-   with the result of the recursive call on the remaining part of the string.*/
+   with the result of the recursive call on the remaining part of the string.
 
   return inputString[inputString.length - 1] +recursiveReverseStringSubString(inputString.substring(0, inputString.length - 1));
 }
@@ -87,7 +87,7 @@ console.log(`"hello" reversed: ${recursiveReverseStringLength(str3, str3.length)
 
 console.log(`\nMethod 5 : Using swap technique\n`);
 /*The idea is to begin with both corners, swap the corner characters and 
-then make recursive call for the remaining string.*/
+then make recursive call for the remaining string.
 
 function recursiveReverseStringSwap(str) {
   // Base case: If the string is empty or has one character, it's already reversed.
@@ -113,5 +113,5 @@ function recursiveReverseStringSwap(str) {
 
 console.log(`"Hello" reversed: ${ recursiveReverseStringSwap("Hello")}`);// Outputs: "olleH" 
 console.log(`"recursive" reversed: ${ recursiveReverseStringSwap("recursion")}`);// Outputs: "noisrucer"
-console.log(`"a" reversed: ${ recursiveReverseStringSwap("a")}`);// Outputs: "a"
+console.log(`"a" reversed: ${ recursiveReverseStringSwap("a")}`);// Outputs: "a"*/
 

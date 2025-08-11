@@ -1,6 +1,6 @@
 My Java Script file recursiveFunctionrecursiveReverseStringFunction contains five different ways to reverse the string using Recursion tecnique. I have chosen one of the ways I used for explanation and how it works.
 
-Reverse String by recursion using slice() and lengt() methods.
+Reverse String by recursion using slice() and length() methods.
 --------------------------------------------------------------
 
 Base Case:
@@ -14,7 +14,7 @@ Recursive Case:
 inputString[inputString.length-1] extracts the last character of the inputString.
 inputString.slice(0, inputString.length - 1) creates a new string containing all characters of inputString except the last one.
 
-reverseString1(inputString.slice(0, inputString.length - 1)) recursively calls the reverseString1 function with this shorter string.
+reverseString(inputString.slice(0, inputString.length - 1)) recursively calls the reverseString function with this shorter string.
 
 The function then concatenates the extracted last character with the result of the recursive call. This effectively builds the reversed string by progressively moving characters from the end of the original string to the beginning of the reversed string.
 
@@ -23,65 +23,65 @@ Example:
 
 If inputString is "hello":
 
-Let's trace how the call stack works with recursiveReverseStringSlice1("hello") example:
+Let's trace how the call stack works with reverseString("hello") example:
 
-recursiveReverseStringSlice1("hello") is called: This function is pushed onto the call stack.
+reverseString("hello") is called: This function is pushed onto the call stack.
 
-Inside recursiveReverseStringSlice1("hello"):
+Inside reverseString("hello"):
 ---------------------------------------------
 
 The if condition ("hello".length <= 1) is false.
-It executes the recursive part: "o" + recursiveReverseStringSlice1("hell")
+It executes the recursive part: "o" + reverseString("hell")
 
-recursiveReverseStringSlice1("hell") is called: This function is pushed onto the call stack (now on top of the previous call).
+reverseString("hell") is called: This function is pushed onto the call stack (now on top of the previous call).
 
-Inside recursiveReverseStringSlice1("hell"):
+Inside reverseString("hell"):
 --------------------------------------------
 The if condition ("hell".length <= 1) is false.
-It executes the recursive part: "l" + recursiveReverseStringSlice1("hel")
-recursiveReverseStringSlice1("hel") is called: This function is pushed onto the call stack.
+It executes the recursive part: "l" + reverseString("hel")
+reverseString("hel") is called: This function is pushed onto the call stack.
 
-Inside recursiveReverseStringSlice1("hel"):
+Inside reverseString("hel"):
 -------------------------------------------
 The if condition ("hel".length <= 1) is false.
-It executes the recursive part: "l" + recursiveReverseStringSlice1("he")
-recursiveReverseStringSlice1("he") is called: This function is pushed onto the call stack.
+It executes the recursive part: "l" + reverseString("he")
+reverseString("he") is called: This function is pushed onto the call stack.
 
-Inside recursiveReverseStringSlice1("he"):
+Inside reverseString("he"):
 ------------------------------------------
 The if condition ("he".length <= 1) is false.
-It executes the recursive part: "e" + recursiveReverseStringSlice1("h")
-recursiveReverseStringSlice1("h") is called: This function is pushed onto the call stack.
+It executes the recursive part: "e" + reverseString("h")
+reverseString("h") is called: This function is pushed onto the call stack.
 
-Inside recursiveReverseStringSlice1("h"):
+Inside reverseString("h"):
 -----------------------------------------
 The if condition ("h".length <= 1) is true.
 It returns "h".
 
-recursiveReverseStringSlice1("h") is popped off the stack.
+reverseString("h") is popped off the stack.
 ----------------------------------------------------------
-Back in recursiveReverseStringSlice1("he"):
+Back in reverseString("he"):
 It receives "h" from the previous call.
 It returns "e" + "h" which is "eh".
 
-recursiveReverseStringSlice1("he") is popped off the stack.
+reverseString("he") is popped off the stack.
 -----------------------------------------------------------
-Back in recursiveReverseStringSlice1("hel"):
+Back in reverseString("hel"):
 It receives "eh" from the previous call.
 It returns "l" + "eh" which is "leh".
 
-recursiveReverseStringSlice1("hel") is popped off the stack.
+reverseString("hel") is popped off the stack.
 -----------------------------------------------------------
-Back in recursiveReverseStringSlice1("hell"):
+Back in reverseString("hell"):
 It receives "leh" from the previous call.
 It returns "l" + "leh" which is "lleh".
 
-recursiveReverseStringSlice1("hell") is popped off the stack.
+reverseString("hell") is popped off the stack.
 ------------------------------------------------------------
-Back in recursiveReverseStringSlice1("hello"):
+Back in reverseString("hello"):
 It receives "lleh" from the previous call.
 It returns "o" + "lleh" which is "olleh".
-recursiveReverseStringSlice1("hello") is popped off the stack. 
+reverseString("hello") is popped off the stack. 
 The final result, "olleh", is then logged to the console. 
 
 This step-by-step process of functions being added and removed from the call stack is fundamental to how JavaScript executes your code, especially with recursive functions. 
